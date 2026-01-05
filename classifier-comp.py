@@ -2,6 +2,7 @@ import numpy as np
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier
 
 X_train = np.array([[-1, -1], [-2, -1], [1, 1], [2, 1], [-5, -3], [4, -2], [2, 6], [-8, 4]])
 y_train = np.array([1, 1, 2, 2, 1, 2, 2, 1])
@@ -25,3 +26,9 @@ clf3.fit(X_train, y_train)
 clf3.predict(X_test)
 acc3 = clf3.score(X_test, y_test)
 print(acc3) # 1.0 at 6 items
+
+clf4 = KNeighborsClassifier(n_neighbors=3)
+clf4.fit(X_train, y_train)
+clf4.predict(X_test)
+acc4 = clf4.score(X_test, y_test)
+print(acc4) # 1.0 at 4 items
